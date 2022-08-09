@@ -1,4 +1,8 @@
 <h3>会員登録</h3>
+<% if @user.errors.any? %>
+<% @user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+<% end %>
 <%= form_with(model: @user, url: signup_path) do |f| %>
 <dl>
     <dt>名前</dt>

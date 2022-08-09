@@ -1,1 +1,7 @@
 <h3><%= @user.user_name %>さんようこそ</h3>
+<h3><%= @user.user_name %>さんのタスク</h3>
+<h3>タスクの登録</h3>
+<%= form_with model: @task do |f| %>
+    <%= render 'commons/form', f: f %><%= f.submit '登録する' %>
+<% end %>
+<%= render 'commons/tasks' %>

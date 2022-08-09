@@ -6,6 +6,7 @@ class User < ApplicationRecord
                 format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                 uniqueness: {case_sensitive: false}
     has_secure_password
+    has_many :tasks
     def day_after_today
         unless :birthday == nil
           errors.add(:birthday, 'は、今日を含む過去の日付を入力して下さい') if birthday > Date.today
