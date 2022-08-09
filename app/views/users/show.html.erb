@@ -5,3 +5,4 @@
     <%= render 'commons/form', f: f %><%= f.submit '登録する' %>
 <% end %>
 <%= render 'commons/tasks' %>
+<%= paginate @tasks %>
