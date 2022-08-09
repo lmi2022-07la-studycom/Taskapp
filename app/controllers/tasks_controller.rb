@@ -15,6 +15,7 @@ class TasksController < ApplicationController
 
   def create
     @task = current_user.tasks.build(task_params)
+    @task.status = '未着手'
     if @task.save
       flash[:success] = '登録しました'
       redirect_to root_path
@@ -32,7 +33,7 @@ class TasksController < ApplicationController
       flash[:success] = '更新しました'
       redirect_to root_path
     else
-      flash[:danger] = '更新できませんでした'
+      flash[:danger] = 'タスク情報を更新できませんでした'
       render :edit
     end
   end
@@ -43,9 +44,19 @@ class TasksController < ApplicationController
     redirect_to root_path
   end
 
+  def change_status
+    @task.update(task_params)
+    redirect_to root_path
+  end
+
+  def search_todo
+    @tasks = current_user.where(status: '未着手')
+    redirect_to root_path
+  end
+
   private
   def task_params
-    params.require(:task).permit(:title, :user_id)
+    params.require(:task).permit(:title, :user_id, :status)
   end
   def set_task
     @task = Task.find(params[:id])

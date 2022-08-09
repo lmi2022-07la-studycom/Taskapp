@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'users/show'
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
+  patch 'change_status', to: 'tasks#change_status'
   resources :tasks
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

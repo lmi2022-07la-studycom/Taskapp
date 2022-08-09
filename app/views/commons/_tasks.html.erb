@@ -1,12 +1,14 @@
 <table>
     <tr>
-        <th>id</th><th>タスク内容</th><th>ステータス</th><th>登録日時</th>
+        <th>タスク内容</th><th>ステータス</th><th>ステータス変更</th><th>登録日時</th>
     </tr>
     <% @tasks.each do |task| %>
     <tr>
-        <td><%= task.id %></td>
         <td><%= task.title %></td>
         <td><%= task.status %></td>
+        <%= form_with(model: task) do |f| %>
+        <td><%= f.select :status, {'未着手': '未着手', '実施中': '実施中', '完了': '完了'} %> <%= f.submit '更新' %></td>
+        <% end %>
         <td><%= task.created_at.strftime('%Y/%m/%d %H時%M分%S秒') %></td>
         <td><%= link_to '編集', edit_task_path(task) %></td>
         <td><%= link_to '削除', task_path(task), method: :delete, data: {confirm: '削除しますか？'} %></td>

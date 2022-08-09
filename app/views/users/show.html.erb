@@ -1,8 +1,8 @@
-<h3><%= @user.user_name %>さんようこそ</h3>
 <h3><%= @user.user_name %>さんのタスク</h3>
-<h3>タスクの登録</h3>
+<p><%# link_to '未着手で絞り込み', todo_task_path %></p>
 <%= form_with model: @task do |f| %>
-    <%= render 'commons/form', f: f %><%= f.submit '登録する' %>
+    <%= render 'commons/form', f: f %>  <%= f.submit '登録する' %>
 <% end %>
+<br>
 <%= render 'commons/tasks' %>
 <%= paginate @tasks %>
