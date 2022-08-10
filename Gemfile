@@ -57,3 +57,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rails-i18n'
 gem 'kaminari'
+gem 'haml-rails'
+gem 'slim-rails'
+gem 'html2slim'
+gem 'bootstrap-sass'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'ranked-model'

@@ -1,0 +1,20 @@
+.alert{
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+.alert-success{
+    background: #d1e7dc;
+    color: #0f5132;
+}
+.alert-danger{
+    background: #f8d6da;
+    color: #842029
+}
+// @import "bootstrap-sprockets";
+// @import "bootstrap"; 
+//= require rails-ujs
+//= require turbolinks
+//= require jquery // 追記
+//= require bootstrap-sprockets //追記
+//= require_tree .

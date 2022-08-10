@@ -11,3 +11,8 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+//= require rails-ujs
+//= require turbolinks
+//= require jquery // 追記
+//= require bootstrap-sprockets //追記
+//= require_tree
