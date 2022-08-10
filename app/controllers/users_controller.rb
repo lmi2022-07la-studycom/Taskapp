@@ -4,14 +4,8 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @tasks = current_user.tasks.all.page(params[:page]).per(20).order(:created_at)
-    case params[:sort]
-    when "todo"
-      @tasks = @tasks.where(status: '未着手')
-    when "doing"
-      @tasks = @tasks.where(status: '実施中')
-    when "done"
-      @tasks = @tasks.where(status: '完了')
-    else
+    if params[:sort].present?
+      @tasks = @tasks.where(status: params[:sort])
     end
     @task = Task.new
 

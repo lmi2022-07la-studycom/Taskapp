@@ -15,7 +15,7 @@ class TasksController < ApplicationController
 
   def create
     @task = current_user.tasks.build(task_params)
-    @task.status = '未着手'
+    @task.status = 'todo'
     if @task.save
       flash[:success] = '登録しました'
       redirect_to root_path
@@ -46,9 +46,10 @@ class TasksController < ApplicationController
 
   def destroy_done
     @tasks = current_user.tasks.where(status: '完了')
-    @tasks.each do |task| 
-      task.delete
-    end
+    @tasks.destroy_all
+    # @tasks.each do |task| 
+    #   task.delete
+    # end
     flash[:success] = '削除しました'
     redirect_to root_path
   end
