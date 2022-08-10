@@ -44,13 +44,12 @@ class TasksController < ApplicationController
     redirect_to root_path
   end
 
-  def change_status
-    @task.update(task_params)
-    redirect_to root_path
-  end
-
-  def search_todo
-    @tasks = current_user.where(status: '未着手')
+  def destroy_done
+    @tasks = current_user.tasks.where(status: '完了')
+    @tasks.each do |task| 
+      task.delete
+    end
+    flash[:success] = '削除しました'
     redirect_to root_path
   end
 
