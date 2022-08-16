@@ -45,7 +45,7 @@ class TasksController < ApplicationController
   end
 
   def destroy_done
-    @tasks = current_user.tasks.where(status: '完了')
+    @tasks = current_user.tasks.where(status: 'done')
     @tasks.destroy_all
     flash[:success] = '削除しました'
     redirect_to root_path
