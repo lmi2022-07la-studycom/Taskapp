@@ -1,6 +1,5 @@
 <h3>タスクの編集</h3>
 <%= form_with model: @task do |f| %>
-    <%= render 'commons/form', f: f %>
-    <%= f.submit '更新する' %>
+    <%= render 'commons/form', f: f %> <%= f.submit '更新する' %>
     <%= link_to 'キャンセル', root_path %>
 <% end %>
