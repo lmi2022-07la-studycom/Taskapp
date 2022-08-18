@@ -9,7 +9,7 @@ class User < ApplicationRecord
     has_many :tasks
     def day_after_today
         unless :birthday == nil
-          if birthday.to_date > Date.today
+          if birthday > Date.today
           errors.add(:birthday, 'は、今日を含む過去の日付を入力して下さい') 
           end
         end

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :already_logged_in, only: [:new, :create]
   def show
     @user = current_user
-    @tasks = current_user.tasks.all.page(params[:page]).per(20).order(:created_at)
+    @tasks = current_user.tasks.all.order(:deadline)
     if params[:sort].present?
       @tasks = @tasks.where(status: params[:sort])
     end

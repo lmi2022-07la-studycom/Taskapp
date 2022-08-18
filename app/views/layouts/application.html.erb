@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Taskapp</title>
+    <title>タスク管理アプリ</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,7 +11,11 @@
   </head>
 
   <body>
+    <div class="container">
     <h1>タスク管理アプリ</h1>
+    <% if logged_in? %>
+    <p class="text-right"><%= @user.user_name %>さんでログイン中</p>
+    <% end %>
     <p>
     <% if logged_in? %>
       <%= link_to 'HOME', root_path %>
@@ -23,5 +27,6 @@
     </p>
     <%= render 'commons/flash' %>
     <%= yield %>
+    </div>
   </body>
 </html>

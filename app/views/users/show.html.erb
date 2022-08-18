@@ -1,12 +1,13 @@
-<h3><%= @user.user_name %>さんのタスク</h3>
-<p><%= link_to '未着手で絞り込み', root_path(sort: 'todo') %>
-<%= link_to '実施中で絞り込み', root_path(sort: 'doing') %>
-<%= link_to '完了で絞り込み', root_path(sort: 'done') %>
-<%= link_to '完了したタスクの削除', delete_done_path, method: :delete, 
-data: {confirm: '完了したタスクを全て削除しますか？'} %></p>
+<div class="text-left">
+<h4>タスクの新規登録</h4>
 <%= form_with model: @task do |f| %>
-    <%= render 'commons/form', f: f %>  <%= f.submit '登録する' %>
+    <%= render 'commons/form', f: f %>
+    <br>
+    <%= f.submit '登録する'%>
 <% end %>
+</div>
+<br>
+<%= link_to '完了タスクの削除', delete_done_path, class:"btn pull-right", method: :delete,
+data: {confirm: '完了したタスクを全て削除しますか？'} %>
 <br>
 <%= render 'commons/tasks' %>
-<%= paginate @tasks %>

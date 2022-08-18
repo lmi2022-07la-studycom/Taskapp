@@ -11,10 +11,8 @@
     background: #f8d6da;
     color: #842029
 }
-// @import "bootstrap-sprockets";
-// @import "bootstrap"; 
-//= require rails-ujs
-//= require turbolinks
-//= require jquery // 追記
-//= require bootstrap-sprockets //追記
-//= require_tree .
+body {
+    background-color: aquamarine
+}
+@import "bootstrap-sprockets";
+@import "bootstrap"; 

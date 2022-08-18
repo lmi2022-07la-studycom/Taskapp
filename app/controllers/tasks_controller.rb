@@ -20,8 +20,8 @@ class TasksController < ApplicationController
       flash[:success] = '登録しました'
       redirect_to root_path
     else
-      flash.now[:danger] = '登録できませんでした'
-      render :new
+      flash[:danger] = '登録できませんでした'
+      redirect_to root_path
     end
   end
 
@@ -53,7 +53,7 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:title, :user_id, :status, :id_posision)
+    params.require(:task).permit(:title, :user_id, :status, :deadline, :project_type, :id_posision)
   end
   def set_task
     @task = Task.find(params[:id])

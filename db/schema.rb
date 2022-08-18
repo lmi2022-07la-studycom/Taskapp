@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2022_08_09_002043) do
     t.bigint "user_id", null: false
     t.string "title", limit: 255, null: false
     t.string "status"
-    t.date "deadline"
+    t.datetime "deadline"
     t.string "project_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

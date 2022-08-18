@@ -1,4 +1,5 @@
-<h3>会員登録</h3>
+<div class="text-center">
+<h2>会員登録</h2>
 <% if @user.errors.any? %>
 <% @user.errors.full_messages.each do |message| %>
     <p><%= message %></p>
@@ -17,5 +18,6 @@
     <dt>パスワード（確認）</dt>
     <dd><%= f.password_field :password_confirmation %></dd>
 </dl>
-<%= f.submit '会員登録' %>
+<%= f.submit '会員登録'%>
 <% end %>
+</div>
